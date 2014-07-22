@@ -4,6 +4,8 @@ import sys
 import os
 import vars.py
 
+#testing123
+
 #change sys.argv[1] to renamed
 filePath = '/home/seedbox/downloads/public/Anime/' + sys.argv[3]
 path = sys.argv[1]
