@@ -75,7 +75,7 @@ while index < KLen and found == "false":
     index+=1
 
     if searchTerm == seriesName:
-
+        found = true
         command = "rsync --progress -v -z -e 'ssh -p8793' \"" + filePath + "\"" + vars.k_host + ":/home/kanchana/A\""
         os.system(command)
 
