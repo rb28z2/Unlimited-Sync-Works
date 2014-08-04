@@ -39,8 +39,6 @@ hashed = 0
 found = "false"
 
 #take each element of the list delete all extra shit and then compare it with the arg passed
-#if it matched sync, if not continue till list is done
-#TODO add a bool found var, so the loop doesn't waste time searching
 #bobstinx
 
 while index < ALen and found == "false":
@@ -50,7 +48,7 @@ while index < ALen and found == "false":
     if searchTerm == seriesName:
         found = "true" 
         command = "rsync --progress -v -z -e 'ssh -p44' \"" + filePath + "\"" + ' ' + "\"" + vars.a_host + ":/cygdrive/f/Anime/Weekly\""
-        os.system(command)
+	os.system(command)
 
 	command = "ssh -p44 " + vars.a_host +  " \"mv '/cygdrive/f/Anime/Weekly/" + sys.argv[3] + "' '/cygdrive/f/Anime/Weekly/" + filename + "'\""
         os.system(command)
