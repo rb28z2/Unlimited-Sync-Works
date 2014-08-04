@@ -65,7 +65,7 @@ while index < ALen and found == "false":
 	completed.close()
 	hashed = 1
 
-#be cheaty and reset flags
+#be cheaty and reset flags!
 #Can't test this because I don't have a unix to unix connection setup yet
 #Will have one soon
 found = "false"
