@@ -29,9 +29,11 @@ KList = open("K.txt").readlines()
 AList.sort()
 KList.sort()
 
+#get len just because
 ALen = len(AList)
 KLen = len(KList)
 
+#set flags (DEATH FLAGS!)
 index = 0
 hashed = 0
 found = "false"
@@ -53,30 +55,35 @@ while index < ALen and found == "false":
 	command = "ssh -p44 " + vars.a_host +  " \"mv '/cygdrive/f/Anime/Weekly/" + sys.argv[3] + "' '/cygdrive/f/Anime/Weekly/" + filename + "'\""
         os.system(command)
 
-        #command = "echo \'/msg Smoothtalk " + sys.argv[3] + " uploaded and renamed successfully\' > /home/seedbox/.irssi/rc"
-        #os.system(command)
-        #command = "echo \'/msg John_Titor " + sys.argv[3] + " uploaded and renamed successfully\' > /home/seedbox/.irssi/rc"
-        #os.system(command)
+        command = "echo \'/msg Smoothtalk " + sys.argv[3] + " uploaded and renamed successfully\' > /home/seedbox/.irssi/rc"
+        os.system(command)
+        command = "echo \'/msg John_Titor " + sys.argv[3] + " uploaded and renamed successfully\' > /home/seedbox/.irssi/rc"
+        os.system(command)
 	completed = open("completed.txt", "a")
 	completed.write(hash)
 	completed.write('\n')
 	completed.close()
 	hashed = 1
 
-#index = 0
-#while index < KLen:
-#    searchTerm = KList[index].strip()
-#    index+=1
+#be cheaty and reset flags
+found = "false"
+index = 0
+while index < KLen and found == "false":
+    searchTerm = KList[index].strip()
+    index+=1
 
-#    if searchTerm == seriesName:
-#        command = "rsync --progress -v -z -e 'ssh -p8793' \"" + filePath + "\"" + vars.k_host +":/home/kanchana/A\""
-#        os.system(command)
-#        command = "ssh -p8793 " + vars.k_host + " \"mv '/home/kanchana/A/" + sys.argv[3] + "' '/home/kanchana/A/" + filename + "'\""
-#        os.system(command)
-#        command = "echo '/msg localhost " + sys.argv[3] + " uploaded and renamed successfully\' > /home/seedbox/.irssi/rc"
-#        os.system(command)
-#	if hashed == 0:
-#		completed = open("completed.txt", "a")
-#		completed.write(hash)
-#		completed.write('\n')
-#		completed.close()    
+    if searchTerm == seriesName:
+
+        command = "rsync --progress -v -z -e 'ssh -p8793' \"" + filePath + "\"" + vars.k_host + ":/home/kanchana/A\""
+        os.system(command)
+
+        command = "ssh -p8793 " + vars.k_host + " \"mv '/home/kanchana/A/" + sys.argv[3] + "' '/home/kanchana/A/" + filename + "'\""
+        os.system(command)
+
+        command = "echo '/msg localhost " + sys.argv[3] + " uploaded and renamed successfully\' > /home/seedbox/.irssi/rc"
+        os.system(command)
+	if hashed == 0:
+		completed = open("completed.txt", "a")
+		completed.write(hash)
+		completed.write('\n')
+		completed.close()    
