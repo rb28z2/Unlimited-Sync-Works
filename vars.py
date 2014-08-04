@@ -1,4 +1,4 @@
 #!/usr/bin/python
 
-a_host = "user@host.com"
-k_host = "user@host.com"
+down_dir = ""
+a_host = ""
