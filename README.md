@@ -12,4 +12,4 @@ In vars.py it is crucial that you have a '/' after your directory
 
 "/home/test/downloads/" <- Good
 
-"/home/test/downalods" <- Bad
+"/home/test/downloads" <- Bad
