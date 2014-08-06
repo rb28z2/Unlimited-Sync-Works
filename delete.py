@@ -2,9 +2,13 @@
 
 import sys
 import os
+import vars
 
-hashes = open("completed.txt",'r').readlines()
+in_file = vars.script_loc + "completed.txt"
+
+hashes = open(in_file,'r').readlines()
+
 for hash in hashes:
-	command = "/home/seedbox/bin/rtcontrol --cull --yes hash=" + hash.strip()
+	command = "/home/test/bin/rtcontrol --cull --yes hash=" + hash.strip()
 	os.system(command)
-os.remove("completed.txt")
+os.remove(in_file)
