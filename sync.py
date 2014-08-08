@@ -4,7 +4,10 @@ import sys
 import os
 import vars
 
-#change sys.argv[1] to renamed
+#for automation tools because PATH is hard
+os.chdir(vars.script_loc)
+
+#receive values
 filePath = vars.down_dir + sys.argv[3]
 path = sys.argv[1]
 hash = sys.argv[2]
@@ -12,7 +15,7 @@ hash = sys.argv[2]
 if "test/downloads" not in path:
 	sys.exit()
 
-#substring the torrent name. If the scrip throws an exception here later
+#substring the torrent name. If the script throws an exception here later
 #on, switch index to find
 firstHyphen = sys.argv[3].rfind(' - ')
 firstCBrac = sys.argv[3].index(']', 0)
