@@ -8,7 +8,7 @@ import vars
 os.chdir(vars.script_loc)
 
 #receive values
-filePath = vars.down_dir + sys.argv[3]
+filePath = vars.host_download_dir + sys.argv[3]
 path = sys.argv[1]
 hash = sys.argv[2]
 
@@ -50,10 +50,10 @@ while index < ALen and found == "false":
 
     if searchTerm == seriesName:
         found = "true" 
-        command = "rsync --progress -v -z -e 'ssh -p44' \"" + filePath + "\"" + ' ' + "\"" + vars.a_host + ":/cygdrive/f/Anime/Weekly\""
-	os.system(command)
+        command = "rsync --progress -v -z -e 'ssh -p" + vars.userport + "'" + " \"" + filePath + "\"" + ' ' + "\"" + vars.a_host + ":" + vars.remote_download_dir + "\""
+        os.system(command)
 
-	command = "ssh -p44 " + vars.a_host +  " \"mv '/cygdrive/f/Anime/Weekly/" + sys.argv[3] + "' '/cygdrive/f/Anime/Weekly/" + filename + "'\""
+        command = "ssh -p" + vars.userport + ' ' + vars.a_host +  " \"mv '" + vars.remote_download_dir + sys.argv[3] + "' '" + vars.remote_download_dir + filename + "'\""
         os.system(command)
 
         command = "echo \'/msg Smoothtalk " + sys.argv[3] + " uploaded and renamed successfully\' > /home/seedbox/.irssi/rc"
